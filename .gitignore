@@ -4,3 +4,4 @@
 
 # No .env
 /api/.env
+/ui/.env
