@@ -15,8 +15,10 @@ Included in the backend is a flask app file, `api.py` and an Astra schema `schem
 ## UI
 Written in JS/TS with React.
 
-## `yarn start`
-Runs the app in development mode at `localhost:3000`.
+This contains the `package.json` which means both of the following commands must be run from inside the `/ui` directory. When in development mode, open two terminals from the same location and call the following in each.
 
-## `yarn serve`
+### `yarn start` or `npm start`
+Runs the app in development mode at `localhost:3000`. Keep in mind that this project lacks a `yarn.lock` and `package-lock.json` so before anything can be called, please use `yarn install` or `npm install`.
+
+### `yarn serve` or `npm serve`
 Runs the api server (Flask) on at `localhost:5000`. However, there is no need for CORS as the ui has a proxy connection to the api.
