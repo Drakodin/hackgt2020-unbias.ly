@@ -12,6 +12,9 @@ Then install the following: `pip install Flask cassandra-driver six python-doten
 
 Included in the backend is a flask app file, `api.py` and an Astra schema `schema.cql` file.
 
+### ranker
+Algorithm and related processes stored here. If you are not using Astra at the moment, import your functions to `api.py` and create the route there. Otherwise, create a datastore object blueprint and use that.
+
 ## UI
 Written in JS/TS with React.
 
