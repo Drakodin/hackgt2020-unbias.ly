@@ -28,15 +28,20 @@ class NewsDisplay extends React.Component {
         ));
     }
 
+    parseLink = (link) => {
+        let hostname = (new URL(link)).hostname;
+        return hostname.substring(hostname.indexOf('.') + 1, hostname.lastIndexOf('.'));
+    }
+
     render() {
         if (!this.state.loading) {
             return (
                 <>
-                    <Grid item container direction="column" spacing={3}>
+                    <Grid item container direction="column" spacing={3} xs={8}>
                         {this.state.articles.map(v => (
-                            <Card key={v.title}>
+                            <Card key={v.link}>
                                 <CardContent>
-
+                                    <h1>{this.parseLink(v.link)}</h1>
                                 </CardContent>
                             </Card>
                         ))}
