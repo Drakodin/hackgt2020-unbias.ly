@@ -15,3 +15,5 @@ class AstraService(object):
     
     def connect(self):
         return self._session.connect()
+
+astra_service = AstraService()
