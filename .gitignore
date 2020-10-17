@@ -1,5 +1,6 @@
-# No venv - too many files
+# No venv, pycaches - too many files
 /api/venv
+/api/__pycache__
 
 # No .env
 /api/.env
