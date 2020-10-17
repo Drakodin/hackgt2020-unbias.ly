@@ -31,7 +31,7 @@ for a in articles:
 #print(artlinks)
 #print(artlinks.index("https://www.ndtv.com/india-news/congress-had-stepmotherly-attitude-towards-ladakh-for-70-years-g-kishan-reddy-2311747"))
 
-NDTVLinks = artlinks[50:75]
+NDTVLinks = artlinks[50:77]
 #print(links)
 # -------------------------------------------------------------------------------------------
 
@@ -80,4 +80,8 @@ for A in ARTICLES:
 LINKS_FINAL = []
 for i in range(len(LINKS)):
     if SCORES[i] != 0:
-        LINKS_FINAL += [{'link': LINKS[i], 'score': SCORES[i]}]
+        value = {'link': LINKS[i], 'score': SCORES[i]}
+        if value in LINKS_FINAL:
+            continue
+        else:
+            LINKS_FINAL += [value]
