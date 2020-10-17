@@ -1,0 +1,3 @@
+# No site-packages and Scripts
+/api/venv/Lib/site-packages
+/api/venv/Scripts
