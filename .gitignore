@@ -1,6 +1,5 @@
-# No site-packages and Scripts
-/api/venv/Lib/site-packages
-/api/venv/Scripts
+# No venv - too many files
+/api/venv
 
 # No .env
 /api/.env
