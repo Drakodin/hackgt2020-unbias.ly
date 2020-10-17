@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from newspaper import Article
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 headers = {
     'Access-Control-Allow-Origin': '*',
@@ -66,4 +67,17 @@ for l in LINKS:
     url = l
     art = Article(url)
     art.download()
+    art.parse()
     ARTICLES +=[art.text]
+
+# VADER Scores, specifically compound
+SCORES = []
+analyzer = SentimentIntensityAnalyzer()
+for A in ARTICLES:
+    vs = analyzer.polarity_scores(A)
+    SCORES += [abs(vs['compound'])]
+
+LINKS_FINAL = []
+for i in range(len(LINKS)):
+    if SCORES[i] != 0:
+        LINKS_FINAL += [{'link': LINKS[i], 'score': SCORES[i]}]
