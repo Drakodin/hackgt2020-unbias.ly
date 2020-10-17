@@ -59,7 +59,33 @@ IndianExpressLinks = artlinks[37:62]
 # --------------------------------------------------------------------------------------------
 
 
-LINKS = IndianExpressLinks+NDTVLinks
+
+# DECCAN CHRONICLES
+# --------------------------------------------------------------------------------------------
+url = "https://www.deccanchronicle.com/nation/politics"
+req = requests.get(url, headers)
+soup = BeautifulSoup(req.content, 'html.parser')
+# print(soup.find_all("a"))
+
+articles = soup.find_all("a")
+# print(articles)
+artlinks = []
+
+for a in articles:
+    artlinks+=["https://www.deccanchronicle.com" + a.get('href')]
+
+# print(artlinks)
+DeccanLinks = artlinks[123: 163]
+
+
+# --------------------------------------------------------------------------------------------
+
+
+
+
+
+
+LINKS = IndianExpressLinks+NDTVLinks+DeccanLinks
 
 ARTICLES = []
 
