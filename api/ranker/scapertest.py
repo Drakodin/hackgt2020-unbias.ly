@@ -12,7 +12,7 @@ headers = {
     }
 
 
-def scraping:
+def scraping():
     #NDTV
     # --------------------------------------------------------------------------------------------
     url = "https://www.ndtv.com/topic/politics"

@@ -5,3 +5,5 @@
 # No .env
 /api/.env
 /ui/.env
+
+__pycache__

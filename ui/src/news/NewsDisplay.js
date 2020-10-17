@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Card, CardContent, CardActions, CardMedia } from '@material-ui/core'
 import { getNews } from './news-fetch/news-endpoint';
 
-class NewsDisplay extends React.Component {
+export default class NewsDisplay extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,14 +14,14 @@ class NewsDisplay extends React.Component {
                 rank: Number
             }
             */
-            articles = [],
-            loading = false
+            articles: [],
+            loading: false
         }
     }
 
     componentDidMount() {
         this.setState({loading: true});
-        getNews().then(data => this.setState({articles: data},
+        getNews().then(data => this.setState({articles: data.data},
             () => {
                 this.setState({loading: false})
             }
@@ -42,12 +42,15 @@ class NewsDisplay extends React.Component {
                             <Card key={v.link}>
                                 <CardContent>
                                     <h1>{this.parseLink(v.link)}</h1>
+                                    <p>{v.score}</p>
                                 </CardContent>
                             </Card>
                         ))}
                     </Grid>
                 </>
             )
+        } else {
+            return <p>Please Wait...</p>
         }
     }
 }

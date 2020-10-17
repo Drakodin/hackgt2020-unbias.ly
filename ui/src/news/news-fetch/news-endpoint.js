@@ -1,5 +1,5 @@
 export const getNews = () => {
-    return fetch(`${process.env.API_PORT}`, {
+    return fetch(`/news`, {
         method: "GET",
         headers: {
             Accept: "application/json",
