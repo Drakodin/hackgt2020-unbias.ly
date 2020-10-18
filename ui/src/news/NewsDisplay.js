@@ -26,7 +26,7 @@ export default class NewsDisplay extends React.Component {
         this.setState({loading: true});
         // Get news from DB, parsing out bad scrapes
         getNews().then(data => this.setState({
-            articles: data.data.filter(v => (v.link != 'https://www.ndtv.com/tamil-nadu-news' || v.link != 'https://www.ndtv.com/education'))
+            articles: data.data.filter(v => (v.link !== 'https://www.ndtv.com/tamil-nadu-news' || v.link !== 'https://www.ndtv.com/education'))
         },
             () => {
                 this.setState({loading: false})
