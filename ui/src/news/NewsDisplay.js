@@ -46,7 +46,7 @@ export default class NewsDisplay extends React.Component {
                             <Grid item container xs={12} style={{margin: 3}}>
                                 <Grid container direction="column">
                                     <Typography variant="h3" style={{color: 'white'}}>Unbias.ly</Typography>
-                                    <Typography variant="body1" style={{color: 'white'}}>The News!</Typography>
+                                    <Typography variant="body1" style={{color: 'white'}}>The News...Without the Bias!</Typography>
                                 </Grid>
                                 <Box>
                                     <Divider/>
