@@ -109,7 +109,7 @@ def scraping():
     LINKS_FINAL = []
     for i in range(len(LINKS)):
         if SCORES[i] != 0:
-            value = {'link': LINKS[i], 'score': SCORES[i], 'title': TITLES[i]}
+            value = {'link': LINKS[i], 'score': SCORES[i], 'title': TITLES[i], 'summary': SUMMARY[i]}
             if value in LINKS_FINAL:
                 continue
             else:
