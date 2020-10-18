@@ -17,7 +17,10 @@ const Home = () => {
         <>
             <h1>Hi</h1>
             <Button onClick={begin}>
-                Go To the News
+                Go To the News (Reload)
+            </Button>
+            <Button onClick={() => window.location.href = `/news`}>
+                Go To the News (Direct)
             </Button>
         </>
     )
