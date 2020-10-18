@@ -25,13 +25,11 @@ export default class NewsDisplay extends React.Component {
     componentDidMount() {
         this.setState({loading: true});
         // Get news from DB, parsing out bad scrapes
-        getNews().then(data => this.setState({
-            articles: data.data.filter(v => (v.link !== 'https://www.ndtv.com/tamil-nadu-news' || v.link !== 'https://www.ndtv.com/education'))
-        },
-            () => {
-                this.setState({loading: false})
-            }
-        ));
+        getNews().then(data => {
+            data.data.sort((a, b) => parseFloat(a.score) - parseFloat(b.score));
+            data.data.filter(v => (v.link !== "https://www.ndtv.com/education" || v.link !== "https://www.ndtv.com/tamil-nadu-news"))
+            this.setState({articles: data.data}, () => this.setState({loading: false}))
+        });
     }
 
     parseLink = (link) => {
