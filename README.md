@@ -28,3 +28,6 @@ Runs the api server (Flask) on at `localhost:5000`. However, there is no need fo
 
 ## ENVs
 There is a `.env` required for both the front-end and back-end. This contains environment variables you will need for this occur. In the front-end, add `API_PORT=localhost:5000/` (this is development, this app was never formally deployed). In the backend, the `.env`, add your username and password as `ASTRA_USER` and `ASTRA_PASS`. To use the bundle zip, add your bundle to `/api`. For security reasons, those files and the security bundle for this project have been removed from this repository.
+
+
+##Update: HackGT MLH Challenge Winner
