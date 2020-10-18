@@ -88,14 +88,14 @@ def scraping():
     LINKS = IndianExpressLinks+NDTVLinks+DeccanLinks
 
     ARTICLES = []
-
+    TITLES = []
     for l in LINKS:
         url = l
         art = Article(url)
         art.download()
         art.parse()
         ARTICLES +=[art.text]
-
+        TITLES += [art.title]
     # VADER Scores, specifically compound
     SCORES = []
     analyzer = SentimentIntensityAnalyzer()
@@ -106,7 +106,7 @@ def scraping():
     LINKS_FINAL = []
     for i in range(len(LINKS)):
         if SCORES[i] != 0:
-            value = {'link': LINKS[i], 'score': SCORES[i]}
+            value = {'link': LINKS[i], 'score': SCORES[i], 'title': TITLES[i]}
             if value in LINKS_FINAL:
                 continue
             else:
