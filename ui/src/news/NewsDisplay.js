@@ -41,28 +41,35 @@ export default class NewsDisplay extends React.Component {
         if (!this.state.loading) {
             return (
                 <>
-                    <Grid item container direction="column" justify="center" alignContent="center" spacing={3} xs={8} style={{margin: 3}}>
-                        <Grid item container xs={12} style={{margin: 3}}>
-                            <Typography variant="h3">The News!</Typography>
-                            <Box>
-                                <Divider/>
-                            </Box>
+                    <Grid style={{backgroundColor: '#4c8bf5'}} alignItems="center" item container xs={12}>
+                        <Grid item container direction="column" justify="center" alignItems="center" alignContent="center" spacing={3} xs={9} style={{margin: 3}}>
+                            <Grid item container xs={12} style={{margin: 3}}>
+                                <Grid container direction="column">
+                                    <Typography variant="h3" style={{color: 'white'}}>Unbias.ly</Typography>
+                                    <Typography variant="body1" style={{color: 'white'}}>The News!</Typography>
+                                </Grid>
+                                <Box>
+                                    <Divider/>
+                                </Box>
+                            </Grid>
+                            {this.state.articles.map((v, i) => {
+                                return (
+                                    <Card key={v.link} style={{margin: 10, maxWidth: '85%'}} elevation={4}>
+                                        <CardActionArea onClick={() => window.open(v.link, '_blank')}>
+                                            <CardContent>
+                                                <h1>{v.title}</h1>
+                                                <p>{v.score}</p>
+                                            </CardContent>
+                                            <CardContent>
+                                                <Typography paragraph>
+                                                    {v.summary}
+                                                </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                    </Card>
+                                )
+                            })}
                         </Grid>
-                        {this.state.articles.map(v => (
-                            <Card key={v.link} style={{margin: 5}} elevation={4}>
-                                <CardActionArea onClick={() => window.open(v.link, '_blank')}>
-                                    <CardContent>
-                                        <h1>{v.title}</h1>
-                                        <p>{v.score}</p>
-                                    </CardContent>
-                                    <CardContent>
-                                        <Typography paragraph>
-                                            {v.summary}
-                                        </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                            </Card>
-                        ))}
                     </Grid>
                 </>
             )
