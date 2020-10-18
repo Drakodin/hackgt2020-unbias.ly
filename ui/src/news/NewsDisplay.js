@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card, CardContent, CardActions, CardMedia } from '@material-ui/core'
+import { Grid, Card, CardContent, CardActions, CardMedia, CardActionArea } from '@material-ui/core'
 import { getNews } from './news-fetch/news-endpoint';
 
 export default class NewsDisplay extends React.Component {
@@ -9,9 +9,9 @@ export default class NewsDisplay extends React.Component {
             /*
             Article JSON
             {
-                provider: String
-                title: String
-                rank: Number
+                link: String
+                score: Number
+                title: Title
             }
             */
             articles: [],
@@ -40,10 +40,12 @@ export default class NewsDisplay extends React.Component {
                     <Grid item container direction="column" spacing={3} xs={8}>
                         {this.state.articles.map(v => (
                             <Card key={v.link}>
-                                <CardContent>
-                                    <h1>{this.parseLink(v.link)}</h1>
-                                    <p>{v.score}</p>
-                                </CardContent>
+                                <CardActionArea onClick={() => window.open(v.link, '_blank')}>
+                                    <CardContent>
+                                        <h1>{v.title}</h1>
+                                        <p>{v.score}</p>
+                                    </CardContent>
+                                </CardActionArea>
                             </Card>
                         ))}
                     </Grid>
