@@ -89,13 +89,16 @@ def scraping():
 
     ARTICLES = []
     TITLES = []
+    SUMMARY = []
     for l in LINKS:
         url = l
         art = Article(url)
         art.download()
         art.parse()
+        art.nlp()
         ARTICLES +=[art.text]
         TITLES += [art.title]
+        SUMMARY += [art.summary]
     # VADER Scores, specifically compound
     SCORES = []
     analyzer = SentimentIntensityAnalyzer()
