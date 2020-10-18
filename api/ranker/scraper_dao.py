@@ -29,6 +29,6 @@ class ScraperDAO(object):
         self._session.execute(batch)
     
     def get_sites(self):
-        stmt = BoundStatement(self.select).bind({})
+        stmt = BoundStatement(self.select)
         result = self._session.execute(stmt)
         return result

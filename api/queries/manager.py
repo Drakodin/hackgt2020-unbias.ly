@@ -41,7 +41,6 @@ class Manager(object):
             cluster = Cluster(cloud=astra_config, auth_provider=PlainTextAuthProvider(self.username, self.password))
             self._session = cluster.connect(keyspace=self.keyspace)
             self._session.row_factory = dict_factory
-            cluster.register_user_type(self.keyspace, 'location_udt', dict)
         
         return self._session
     

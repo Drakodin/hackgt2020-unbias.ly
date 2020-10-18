@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+import nltk
+nltk.download('punkt')
 from newspaper import Article
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
